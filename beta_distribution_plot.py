@@ -2,6 +2,7 @@
 from scipy.stats import beta
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 class beta_distribution(object):
     def __init__(self):
@@ -17,7 +18,7 @@ class beta_distribution(object):
         return p_x
 
     def plot_bete(self,data,color):
-        plt.axis([0, 1, 0,3])
+        plt.axis([-0.1, 1, -0.1,6])
         plt.plot(self.x,data,color,label='a=%s,b=%s'%(self.hyperparameter[0],self.hyperparameter[1]),linewidth=2.0)
         plt.legend(loc='best')
 
@@ -41,12 +42,27 @@ class beta_distribution(object):
         return [(5,1),(2,2),(0.5,0.5),(2,2),(2,5)]
 
 #----------------------------------------------------------------
-class likehood(object):
-    print 'a'
-    pass
+class likelihood(object):
+    def __init__(self):
+        self.binomial_theta=[0.5]
+        self.d=0
+        self.multi_theta=[0.1,0.2,0.3,0.4]
+
+    def binomial(self,):
+
+        return
+
+    def plot_likelihood_beta(self):
+        pass
+    def plot_likelihood_multinomial(self):
+        pass
+    def nCr(n,r):
+        f = math.factorial
+        return f(n) / f(r) / f(n-r)
+
 def main():
     prior_beta=beta_distribution()
     prior_beta.plot_multi_curve()
-    prior_beta.plot_single_curve()
+    prior_beta.plot_single_curve(1.25,8.75)
 if __name__=="__main__":
     main()
